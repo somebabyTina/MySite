@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-lang-zh="李湘婷 Tina Lee | 資深 ERP 系統與 AI 應用導入顧問" data-lang-en="Tina Lee | Senior ERP & AI Business Transformation Consultant">李湘婷 Tina Lee | 資深 ERP 系統與 AI 應用導入顧問</title>
+    <title data-lang-zh="李湘婷 Tina Lee | 企業系統與 AI 應用導入顧問" data-lang-en="Tina Lee | Enterprise System & AI Business Transformation Consultant">李湘婷 Tina Lee | 企業系統與 AI 應用導入顧問</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome -->
@@ -65,7 +65,7 @@
                 </div>
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex space-x-6 items-center">
-                    <a href="#about" class="text-gray-600 hover:text-brand-teal transition-colors font-medium" data-lang-zh="核心價值" data-lang-en="Core Value">核心價值</a>
+                    <a href="#about" class="text-gray-600 hover:text-brand-teal transition-colors font-medium" data-lang-zh="核心優勢" data-lang-en="Core Advantages">核心優勢</a>
                     <a href="#experience" class="text-gray-600 hover:text-brand-teal transition-colors font-medium" data-lang-zh="實戰經驗" data-lang-en="Experience">實戰經驗</a>
                     <a href="#skills" class="text-gray-600 hover:text-brand-teal transition-colors font-medium" data-lang-zh="核心能力" data-lang-en="Skills">核心能力</a>
                     <a href="#ai-vision" class="text-gray-600 hover:text-brand-teal transition-colors font-medium" data-lang-zh="AI 轉型" data-lang-en="AI Vision">AI 轉型</a>
@@ -75,10 +75,10 @@
                     <button id="lang-toggle-btn" class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-1.5 rounded-full text-xs font-bold border border-gray-300 transition-all flex items-center gap-1.5 shadow-sm">
                         <i class="fas fa-globe text-brand-teal"></i> <span id="lang-text">EN</span>
                     </button>
-                    <!-- 膠囊左右開關音樂按鈕 -->
-                    <button id="music-toggle-btn" class="relative flex items-center bg-gray-200 rounded-full p-1 w-24 h-9 cursor-pointer transition-colors duration-300 shadow-inner border border-gray-300 focus:outline-none" aria-label="切換背景音樂">
-                        <div id="capsule-thumb" class="absolute left-1 top-1 w-7 h-7 bg-white rounded-full shadow-md flex items-center justify-center transition-transform duration-300 transform translate-x-0">
-                            <i id="music-icon" class="fas fa-volume-xmark text-xs text-gray-500"></i>
+                    <!-- 膠囊左右開關音樂按鈕 (預設開啟) -->
+                    <button id="music-toggle-btn" class="relative flex items-center bg-teal-100 rounded-full p-1 w-24 h-9 cursor-pointer transition-colors duration-300 shadow-inner border border-teal-300 focus:outline-none" aria-label="切換背景音樂">
+                        <div id="capsule-thumb" class="absolute left-1 top-1 w-7 h-7 bg-brand-teal rounded-full shadow-md flex items-center justify-center transition-transform duration-300 transform translate-x-[34px]">
+                            <i id="music-icon" class="fas fa-volume-high text-xs text-white animate-pulse"></i>
                         </div>
                         <div class="w-full flex justify-between px-2 text-[11px] font-bold text-gray-500 select-none">
                             <span class="z-10 pl-0.5">OFF</span>
@@ -100,9 +100,9 @@
                         EN
                     </button>
                     <!-- 手機版膠囊開關按鈕 -->
-                    <button id="music-toggle-btn-mobile" class="relative flex items-center bg-gray-200 rounded-full p-1 w-20 h-8 cursor-pointer transition-colors duration-300 shadow-inner border border-gray-300 focus:outline-none" aria-label="切換背景音樂">
-                        <div id="capsule-thumb-mobile" class="absolute left-1 top-1 w-6 h-6 bg-white rounded-full shadow-md flex items-center justify-center transition-transform duration-300 transform translate-x-0">
-                            <i id="music-icon-mobile" class="fas fa-volume-xmark text-[10px] text-gray-500"></i>
+                    <button id="music-toggle-btn-mobile" class="relative flex items-center bg-teal-100 rounded-full p-1 w-20 h-8 cursor-pointer transition-colors duration-300 shadow-inner border border-teal-300 focus:outline-none" aria-label="切換背景音樂">
+                        <div id="capsule-thumb-mobile" class="absolute left-1 top-1 w-6 h-6 bg-brand-teal rounded-full shadow-md flex items-center justify-center transition-transform duration-300 transform translate-x-[28px]">
+                            <i id="music-icon-mobile" class="fas fa-volume-high text-[10px] text-white animate-pulse"></i>
                         </div>
                         <div class="w-full flex justify-between px-2 text-[10px] font-bold text-gray-500 select-none">
                             <span class="z-10">OFF</span>
@@ -117,7 +117,7 @@
         </div>
         <!-- Mobile Menu dropdown -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-200 px-4 pt-2 pb-4 space-y-2 shadow-lg">
-            <a href="#about" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100" data-lang-zh="核心價值" data-lang-en="Core Value">核心價值</a>
+            <a href="#about" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100" data-lang-zh="核心優勢" data-lang-en="Core Advantages">核心優勢</a>
             <a href="#experience" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100" data-lang-zh="實戰經驗" data-lang-en="Experience">實戰經驗</a>
             <a href="#skills" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100" data-lang-zh="核心能力" data-lang-en="Skills">核心能力</a>
             <a href="#ai-vision" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100" data-lang-zh="AI 轉型" data-lang-en="AI Vision">AI 轉型</a>
@@ -141,24 +141,24 @@
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 <!-- 左側文案區塊 -->
                 <div class="lg:col-span-7 text-center lg:text-left">
-                    <div class="inline-block px-4 py-1.5 rounded-full bg-white/10 text-brand-teal border border-brand-teal/30 backdrop-blur-sm text-sm font-semibold tracking-wide mb-6 fade-in-up delay-100" data-lang-zh="ERP 系統整合 ✕ 流程洞察優化 ✕ AI 應用導入" data-lang-en="ERP System Integration ✕ Process Optimization ✕ AI Adoption">
-                        ERP 系統整合 ✕ 流程洞察優化 ✕ AI 應用導入
+                    <div class="inline-block px-4 py-1.5 rounded-full bg-white/10 text-brand-teal border border-brand-teal/30 backdrop-blur-sm text-sm font-semibold tracking-wide mb-6 fade-in-up delay-100" data-lang-zh="ERP 系統整合 × 流程洞察優化 × AI 應用導入" data-lang-en="ERP System Integration × Process Optimization × AI Adoption">
+                        ERP 系統整合 × 流程洞察優化 × AI 應用導入
                     </div>
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 fade-in-up delay-200">
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4 fade-in-up delay-200">
                         <span class="text-gradient">李湘婷 Tina Lee</span>
                     </h1>
-                    <p class="text-xl sm:text-2xl text-gray-300 font-light mb-8 leading-relaxed fade-in-up delay-300" data-lang-zh="非常熱衷於解決企業問題，會<span class='text-white font-medium'>洞察、分析、理解使用者未說明的問題</span>，並<span class='text-white font-medium'>簡化、優化工作流程</span>的實戰派人才。" data-lang-en="A pragmatic talent passionate about solving enterprise challenges by <span class='text-white font-medium'>discovering, analyzing, and understanding unstated user needs</span> while <span class='text-white font-medium'>simplifying and streamlining workflows</span>.">
-                        非常熱衷於解決企業問題，會<span class="text-white font-medium">洞察、分析、理解使用者未說明的問題</span>，並<span class="text-white font-medium">簡化、優化工作流程</span>的實戰派人才。
+                    <p class="text-xl sm:text-2xl text-gray-300 font-light mb-6 fade-in-up delay-300" data-lang-zh="22 年企業系統與 Business Process 實戰經驗" data-lang-en="22 Years of Enterprise Systems & Business Process Experience">
+                        22 年企業系統與 Business Process 實戰經驗
                     </p>
-                    <p class="text-lg text-gray-400 mb-10 max-w-2xl mx-auto lg:mx-0 fade-in-up delay-400 leading-relaxed" data-lang-zh="橫跨 22 年 ERP 系統整合與企業流程再造經驗，正將這份紮實的產業實戰底子，無縫延伸至前沿的企業 AI 應用領域。" data-lang-en="With over 22 years of experience in ERP integration and business process re-engineering, seamlessly extending this solid industrial foundation into the cutting-edge realm of enterprise AI applications.">
-                        橫跨 22 年 ERP 系統整合與企業流程再造經驗，正將這份紮實的產業實戰底子，無縫延伸至前沿的企業 AI 應用領域。
+                    <p class="text-lg text-gray-400 mb-10 max-w-2xl mx-auto lg:mx-0 fade-in-up delay-400 leading-relaxed" data-lang-zh="從問題洞察、流程設計到 System & AI Solution，將複雜的企業需求轉化為真正可落地的解決方案。" data-lang-en="From business pain point discovery and process design to System & AI Solutions, turning complex enterprise needs into truly actionable implementations.">
+                        從問題洞察、流程設計到 System & AI Solution，將複雜的企業需求轉化為真正可落地的解決方案。
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start fade-in-up delay-500">
                         <a href="#ai-vision" class="bg-brand-teal text-white px-8 py-3.5 rounded-full font-medium hover:bg-teal-500 transition-colors shadow-lg hover:shadow-teal-500/30 text-center" data-lang-zh="探索 AI 轉型願景" data-lang-en="Explore AI Vision">
                             探索 AI 轉型願景
                         </a>
-                        <a href="#experience" class="bg-white/10 text-white border border-white/20 px-8 py-3.5 rounded-full font-medium hover:bg-white/20 transition-colors backdrop-blur-sm text-center" data-lang-zh="了解過往實戰" data-lang-en="View Experience">
-                            了解過往實戰
+                        <a href="#experience" class="bg-white/10 text-white border border-white/20 px-8 py-3.5 rounded-full font-medium hover:bg-white/20 transition-colors backdrop-blur-sm text-center" data-lang-zh="查看實戰經驗" data-lang-en="View Experience">
+                            查看實戰經驗
                         </a>
                     </div>
                 </div>
@@ -185,42 +185,42 @@
             <div class="text-center mb-16 fade-in-up">
                 <h2 class="text-3xl font-bold text-gray-900 mb-4" data-lang-zh="為什麼選擇我？" data-lang-en="Why Choose Me?">為什麼選擇我？</h2>
                 <div class="w-20 h-1 bg-brand-teal mx-auto rounded-full"></div>
-                <p class="mt-6 text-lg text-gray-600 max-w-3xl mx-auto" data-lang-zh="深諳企業核心營運系統與跨國流程架構。具備敏銳的洞察與化繁為簡能力，為企業提供端到端的系統優化與數位轉型解方。" data-lang-en="Proficient in core enterprise operating systems and cross-border process architectures. Equipped with sharp insight and simplification capabilities, delivering end-to-end system optimization and digital transformation solutions.">
-                    深諳企業核心營運系統與跨國流程架構。具備敏銳的洞察與化繁為簡能力，為企業提供端到端的系統優化與數位轉型解方。
+                <p class="mt-6 text-lg text-gray-600 max-w-3xl mx-auto" data-lang-zh="將 Business Pain Point 轉化為可落地的 System & AI Solution。" data-lang-en="Translating Business Pain Points into Actionable System & AI Solutions.">
+                    將 Business Pain Point 轉化為可落地的 System & AI Solution。
                 </p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- 特點 1 -->
+                <!-- 核心優勢 1 -->
                 <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100 hover:shadow-xl transition-shadow duration-300 fade-in-up">
                     <div class="w-14 h-14 bg-blue-100 text-brand-blue rounded-xl flex items-center justify-center text-2xl mb-6">
                         <i class="fas fa-search-dollar"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3" data-lang-zh="熱衷解決企業問題" data-lang-en="Problem-Solving Passion">熱衷解決企業問題</h3>
-                    <p class="text-gray-600 leading-relaxed text-sm" data-lang-zh="非常熱衷於解決企業問題，會洞察、分析、理解使用者未說明的問題，並將繁雜工作流程進行精準的簡化與優化。" data-lang-en="Deeply passionate about solving business problems. Excels at uncovering, analyzing, and understanding unstated user pain points to streamline complex workflows.">
-                        非常熱衷於解決企業問題，會洞察、分析、理解使用者未說明的問題，並將繁雜工作流程進行精準的簡化與優化。
+                    <h3 class="text-xl font-bold text-gray-900 mb-3" data-lang-zh="Business Process Insight" data-lang-en="Business Process Insight">Business Process Insight</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm" data-lang-zh="從使用者需求與營運流程中，找出真正需要解決的問題。" data-lang-en="Uncovering and diagnosing the core problems that truly need solving from user needs and operational workflows.">
+                        從使用者需求與營運流程中，找出真正需要解決的問題。
                     </p>
                 </div>
                 
-                <!-- 特點 2 -->
+                <!-- 核心優勢 2 -->
                 <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100 hover:shadow-xl transition-shadow duration-300 fade-in-up delay-100">
                     <div class="w-14 h-14 bg-teal-100 text-brand-teal rounded-xl flex items-center justify-center text-2xl mb-6">
                         <i class="fas fa-project-diagram"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3" data-lang-zh="22年 ERP 實戰底蘊" data-lang-en="22 Years ERP Expertise">22年 ERP 實戰底蘊</h3>
-                    <p class="text-gray-600 leading-relaxed text-sm" data-lang-zh="擁有長達 22 年的 ERP 系統整合與企業流程再造經驗，深諳大型半導體與跨國企業營運架構與系統盲點。" data-lang-en="With over 22 years of experience in ERP system integration and business process re-engineering, mastering operation architectures and system blind spots in semiconductor giants and multinationals.">
-                        擁有長達 22 年的 ERP 系統整合與企業流程再造經驗，深諳大型半導體與跨國企業營運架構與系統盲點。
+                    <h3 class="text-xl font-bold text-gray-900 mb-3" data-lang-zh="Enterprise System Experience" data-lang-en="Enterprise System Experience">Enterprise System Experience</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm" data-lang-zh="具備 ERP、跨國系統整合與 BPR 實戰經驗，理解企業系統真正如何運作。" data-lang-en="Equipped with ERP, cross-border system integration, and BPR expertise, understanding how enterprise systems truly operate.">
+                        具備 ERP、跨國系統整合與 BPR 實戰經驗，理解企業系統真正如何運作。
                     </p>
                 </div>
 
-                <!-- 特點 3 -->
+                <!-- 核心優勢 3 -->
                 <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100 hover:shadow-xl transition-shadow duration-300 fade-in-up delay-200">
                     <div class="w-14 h-14 bg-indigo-100 text-indigo-600 rounded-xl flex items-center justify-center text-2xl mb-6">
                         <i class="fas fa-brain"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3" data-lang-zh="AI 落地實踐者" data-lang-en="AI Practical Implementer">AI 落地實踐者</h3>
-                    <p class="text-gray-600 leading-relaxed text-sm" data-lang-zh="致力於將 AI 技術轉化為可落地的企業應用方案。具備 iPAS AI 應用規劃師等專業認證，持續精進商務 AI 開發。" data-lang-en="Dedicated to translating AI technologies into actionable enterprise application solutions. Certified as an iPAS AI Application Planner, continuously advancing in business AI development.">
-                        致力於將 AI 技術轉化為可落地的企業應用方案。具備 iPAS AI 應用規劃師等專業認證，持續精進商務 AI 開發。
+                    <h3 class="text-xl font-bold text-gray-900 mb-3" data-lang-zh="AI Solution Translation" data-lang-en="AI Solution Translation">AI Solution Translation</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm" data-lang-zh="不從「要買哪個 AI」開始，而是從「企業問題該如何被 AI 解決」開始。" data-lang-en="Starting not with 'which AI to buy', but with 'how enterprise problems can be solved by AI'.">
+                        不從「要買哪個 AI」開始，而是從「企業問題該如何被 AI 解決」開始。
                     </p>
                 </div>
             </div>
@@ -366,8 +366,8 @@
                                     <i class="fas fa-award"></i>
                                 </div>
                                 <div class="ml-4">
-                                    <p class="text-white font-medium text-lg" data-lang-zh="iPAS AI 應用規劃師（進階級）" data-lang-en="iPAS AI Application Planner (Advanced)">iPAS AI 應用規劃師（進階級）</p>
-                                    <p class="text-gray-400 text-sm mt-1" data-lang-zh="經濟部產業人才能力鑑定，具備規劃企業 AI 解決方案的高階能力。" data-lang-en="MOEA Industry Talent Certification, equipped with high-level enterprise AI solution planning capabilities.">經濟部產業人才能力鑑定，具備規劃企業 AI 解決方案的高階能力。</p>
+                                    <p class="text-white font-medium text-lg" data-lang-zh="iPAS AI 應用規劃師（初級）" data-lang-en="iPAS AI Application Planner (Elementary)">iPAS AI 應用規劃師（初級）</p>
+                                    <p class="text-gray-400 text-sm mt-1" data-lang-zh="經濟部產業人才能力鑑定，具備規劃企業 AI 解決方案的專業能力。" data-lang-en="MOEA Industry Talent Certification, equipped with professional enterprise AI solution planning capabilities.">經濟部產業人才能力鑑定，具備規劃企業 AI 解決方案的專業能力。</p>
                                 </div>
                             </li>
                             
@@ -414,8 +414,8 @@
             
             <div class="mt-16 pt-8 border-t border-gray-800 text-gray-500 text-sm flex flex-col sm:flex-row justify-between items-center">
                 <p>&copy; 2026 李湘婷 (Tina Lee). All rights reserved.</p>
-                <div class="mt-4 sm:mt-0" data-lang-zh="專為 ERP 與 AI 轉型而設計" data-lang-en="Designed for ERP & AI Transformation">
-                    專為 ERP 與 AI 轉型而設計
+                <div class="mt-4 sm:mt-0" data-lang-zh="專為企業系統與 AI 轉型而設計" data-lang-en="Designed for Enterprise Systems & AI Transformation">
+                    專為企業系統與 AI 轉型而設計
                 </div>
             </div>
         </div>
@@ -463,7 +463,7 @@
             });
         }
 
-        // 背景音樂膠囊開關邏輯
+        // 背景音樂膠囊開關邏輯 (預設開啟)
         const bgMusic = document.getElementById('bg-music');
         const musicToggleBtn = document.getElementById('music-toggle-btn');
         const musicToggleBtnMobile = document.getElementById('music-toggle-btn-mobile');

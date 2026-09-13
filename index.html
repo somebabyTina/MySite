@@ -50,6 +50,41 @@
             opacity: 1;
             transform: translateY(0);
         }
+    
+        /* Experience: scoped, responsive styles; content stays visible without animation. */
+        #experience{padding:88px 0;background:#f3f4f6;scroll-margin-top:80px}
+        #experience .exp-container{max-width:1160px;margin:auto;padding:0 28px}
+        #experience .exp-heading{max-width:760px;margin:0 0 42px}
+        #experience .exp-eyebrow{font-size:12px;font-weight:700;letter-spacing:.09em;color:#0f766e;margin:0 0 10px}
+        #experience h2{font-size:36px;line-height:1.25;font-weight:700;color:#0b1120;margin:0 0 18px}
+        #experience .exp-intro{color:#526071;font-size:16px;line-height:1.9}
+        #experience .exp-timeline{list-style:none;margin:0 0 72px 8px;padding:0 0 0 30px;border-left:2px solid #cbd5e1}
+        #experience .exp-stop{position:relative;margin-bottom:24px}
+        #experience .exp-stop::before{content:'';position:absolute;left:-38px;top:32px;width:14px;height:14px;background:#0d9488;border:3px solid #f3f4f6;border-radius:50%;box-shadow:0 0 0 2px #0d9488}
+        #experience .exp-card{background:white;border:1px solid #e2e8f0;border-radius:18px;padding:28px;box-shadow:0 4px 18px #0b112004}
+        #experience .exp-card-head{display:flex;justify-content:space-between;gap:22px;align-items:flex-start}
+        #experience .exp-card h3{font-size:21px;line-height:1.45;font-weight:700;color:#0b1120;margin:0 0 6px}
+        #experience .exp-role{color:#1e3a8a;font-size:14px;line-height:1.7;font-weight:600;max-width:650px}
+        #experience .exp-date{font-size:13px;color:#526071;white-space:nowrap;margin-top:2px;font-weight:600}
+        #experience .exp-focus{display:inline-block;margin:18px 0 22px;padding:5px 10px;background:#f0fdfa;color:#0f766e;font-size:13px;border-radius:5px}
+        #experience .exp-columns{display:grid;grid-template-columns:1fr 1.5fr;gap:28px;border-top:1px solid #eef2f6;padding-top:22px}
+        #experience .exp-label{font-size:13px;font-weight:700;color:#0b1120;margin:0 0 10px}
+        #experience .exp-copy,#experience .exp-list{font-size:14px;line-height:1.85;color:#526071}
+        #experience .exp-list{padding-left:18px;margin:0;list-style:disc}
+        #experience .exp-list li+li{margin-top:7px}
+        #experience .exp-list li::marker{color:#0d9488}
+        #experience .exp-project-link{display:inline-block;margin-top:14px;color:#1e3a8a;font-weight:600;font-size:13px;text-underline-offset:4px}
+        #experience .exp-project-link:hover{text-decoration:underline}
+        #experience .exp-project-link:focus-visible{outline:2px solid #0d9488;outline-offset:5px}
+        #enterprise-projects{scroll-margin-top:90px}
+        #experience .exp-project-heading h3{font-size:28px;font-weight:700;color:#0b1120;margin:0 0 14px}
+        #experience .exp-project-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+        #experience .exp-project{border:1px solid #dbe4ee;border-top:3px solid #1e3a8a;border-radius:14px;background:white;padding:26px}
+        #experience .exp-project h4{font-size:19px;font-weight:700;line-height:1.5;color:#0b1120;margin:0 0 24px}
+        #experience .exp-project dt{font-size:12px;font-weight:700;color:#0f766e;margin:18px 0 5px}
+        #experience .exp-project dd{font-size:14px;line-height:1.85;color:#526071;margin:0}
+        @media(max-width:900px){#experience .exp-card-head{display:block}#experience .exp-date{margin-top:12px}#experience .exp-project-grid{grid-template-columns:1fr}}
+        @media(max-width:640px){#experience{padding:56px 0}#experience .exp-container{padding:0 18px}#experience h2{font-size:30px}#experience .exp-timeline{padding-left:20px;margin-left:4px}#experience .exp-stop::before{left:-28px}#experience .exp-card{padding:20px}#experience .exp-columns{grid-template-columns:1fr;gap:22px}#experience .exp-card h3{font-size:19px}#experience .exp-project{padding:22px}}
     </style>
 </head>
 <body class="bg-brand-light text-gray-800 antialiased font-sans">
@@ -61,12 +96,12 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
                 <div class="flex-shrink-0 flex items-center">
-                    <a href="#" class="text-xl sm:text-2xl font-bold text-brand-blue tracking-wider">李湘婷 <span class="text-gray-400 font-light text-lg">| Tina Lee</span></a>
+                    <a href="#hero" class="text-sm sm:text-base font-semibold text-brand-blue tracking-wide" data-lang-zh="企業系統。永續發展。AI科技" data-lang-en="Enterprise Systems · Sustainability · AI">企業系統。永續發展。AI科技</a>
                 </div>
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex space-x-6 items-center">
                     <a href="#about" class="text-gray-600 hover:text-brand-teal transition-colors font-medium" data-lang-zh="核心優勢" data-lang-en="Core Advantages">核心優勢</a>
-                    <a href="#experience" class="text-gray-600 hover:text-brand-teal transition-colors font-medium" data-lang-zh="實戰經驗" data-lang-en="Experience">實戰經驗</a>
+                    <a href="#experience" class="text-gray-600 hover:text-brand-teal transition-colors font-medium" data-lang-zh="實戰經歷" data-lang-en="Experience">實戰經歷</a>
                     <a href="#skills" class="text-gray-600 hover:text-brand-teal transition-colors font-medium" data-lang-zh="核心能力" data-lang-en="Skills">核心能力</a>
                     <a href="#ai-vision" class="text-gray-600 hover:text-brand-teal transition-colors font-medium" data-lang-zh="AI 轉型" data-lang-en="AI Vision">AI 轉型</a>
                 </div>
@@ -118,7 +153,7 @@
         <!-- Mobile Menu dropdown -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-200 px-4 pt-2 pb-4 space-y-2 shadow-lg">
             <a href="#about" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100" data-lang-zh="核心優勢" data-lang-en="Core Advantages">核心優勢</a>
-            <a href="#experience" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100" data-lang-zh="實戰經驗" data-lang-en="Experience">實戰經驗</a>
+            <a href="#experience" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100" data-lang-zh="實戰經歷" data-lang-en="Experience">實戰經歷</a>
             <a href="#skills" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100" data-lang-zh="核心能力" data-lang-en="Skills">核心能力</a>
             <a href="#ai-vision" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100" data-lang-zh="AI 轉型" data-lang-en="AI Vision">AI 轉型</a>
             <div class="pt-2 flex flex-col gap-2">
@@ -147,8 +182,8 @@
                     <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4 fade-in-up delay-200">
                         <span class="text-gradient">李湘婷 Tina Lee</span>
                     </h1>
-                    <p class="text-xl sm:text-2xl text-gray-300 font-light mb-6 fade-in-up delay-300" data-lang-zh="22 年企業系統與 Business Process 實戰經驗" data-lang-en="22 Years of Enterprise Systems & Business Process Experience">
-                        22 年企業系統與 Business Process 實戰經驗
+                    <p class="text-xl sm:text-2xl text-gray-300 font-light mb-6 fade-in-up delay-300" data-lang-zh="22 年企業系統與 Business Process 實戰經歷" data-lang-en="22 Years of Enterprise Systems & Business Process Experience">
+                        22 年企業系統與 Business Process 實戰經歷
                     </p>
                     <p class="text-lg text-gray-400 mb-10 max-w-2xl mx-auto lg:mx-0 fade-in-up delay-400 leading-relaxed" data-lang-zh="從問題洞察、流程設計到 System & AI Solution，將複雜的企業需求轉化為真正可落地的解決方案。" data-lang-en="From business pain point discovery and process design to System & AI Solutions, turning complex enterprise needs into truly actionable implementations.">
                         從問題洞察、流程設計到 System & AI Solution，將複雜的企業需求轉化為真正可落地的解決方案。
@@ -157,8 +192,8 @@
                         <a href="#ai-vision" class="bg-brand-teal text-white px-8 py-3.5 rounded-full font-medium hover:bg-teal-500 transition-colors shadow-lg hover:shadow-teal-500/30 text-center" data-lang-zh="探索 AI 轉型願景" data-lang-en="Explore AI Vision">
                             探索 AI 轉型願景
                         </a>
-                        <a href="#experience" class="bg-white/10 text-white border border-white/20 px-8 py-3.5 rounded-full font-medium hover:bg-white/20 transition-colors backdrop-blur-sm text-center" data-lang-zh="查看實戰經驗" data-lang-en="View Experience">
-                            查看實戰經驗
+                        <a href="#experience" class="bg-white/10 text-white border border-white/20 px-8 py-3.5 rounded-full font-medium hover:bg-white/20 transition-colors backdrop-blur-sm text-center" data-lang-zh="查看實戰經歷" data-lang-en="View Experience">
+                            查看實戰經歷
                         </a>
                     </div>
                 </div>
@@ -227,233 +262,40 @@
         </div>
     </section>
 
-    <section id="experience" class="py-20 bg-brand-light">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-            <!-- Experience Header -->
-            <div class="text-center mb-14 fade-in-up">
-                <h2 class="text-3xl font-bold text-gray-900 mb-4"
-                    data-lang-zh="實戰經歷 Experience"
-                    data-lang-en="Professional Experience">
-                    實戰經歷 Experience
-                </h2>
-                <div class="w-20 h-1 bg-brand-blue mx-auto rounded-full mb-6"></div>
-                <p class="text-gray-600 max-w-3xl mx-auto"
-                   data-lang-zh="超過 22 年企業系統、ERP、流程再造與跨部門專案實務，涵蓋半導體、軟體、電信與製造產業。"
-                   data-lang-en="Over 22 years of hands-on experience in enterprise systems, ERP, business process re-engineering, and cross-functional projects across semiconductor, software, telecom, and manufacturing industries.">
-                    超過 22 年企業系統、ERP、流程再造與跨部門專案實務，涵蓋半導體、軟體、電信與製造產業。
-                </p>
-            </div>
-
-            <!-- Career Timeline -->
-            <div class="max-w-5xl mx-auto mb-20 fade-in-up">
-                <div class="relative border-l-2 border-brand-blue/20 ml-4 md:ml-6 space-y-10">
-
-                    <!-- Diodes -->
-                    <div class="relative pl-8 md:pl-10">
-                        <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-brand-blue ring-4 ring-blue-100"></div>
-                        <div class="bg-white rounded-2xl p-6 md:p-7 shadow-sm border border-gray-200 hover:shadow-md transition-all">
-                            <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-2 mb-3">
-                                <div>
-                                    <h3 class="text-xl font-bold text-gray-900"
-                                        data-lang-zh="Diodes Incorporated 美商達爾科技"
-                                        data-lang-en="Diodes Incorporated">
-                                        Diodes Incorporated 美商達爾科技
-                                    </h3>
-                                    <p class="text-brand-blue font-medium mt-1"
-                                       data-lang-zh="半導體大廠"
-                                       data-lang-en="Semiconductor Industry">
-                                        半導體大廠
-                                    </p>
-                                </div>
-                                <span class="text-sm font-semibold text-gray-500 whitespace-nowrap">2008 – 2025</span>
-                            </div>
-                            <p class="font-semibold text-gray-800"
-                               data-lang-zh="Senior Application Manager & Business Process Re-engineering Manager"
-                               data-lang-en="Senior Application Manager & Business Process Re-engineering Manager">
-                                Senior Application Manager & Business Process Re-engineering Manager
-                            </p>
-                            <p class="text-gray-600 mt-3 leading-relaxed"
-                               data-lang-zh="深耕近 17 年，主導全球 ERP、系統整合、Business Process Re-engineering 與跨國流程改善專案，並帶領約 12 人團隊。"
-                               data-lang-en="Spent nearly 17 years leading global ERP, system integration, business process re-engineering, and cross-border process improvement initiatives, while managing a team of approximately 12 professionals.">
-                                深耕近 17 年，主導全球 ERP、系統整合、Business Process Re-engineering 與跨國流程改善專案，並帶領約 12 人團隊。
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- WITS -->
-                    <div class="relative pl-8 md:pl-10">
-                        <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-brand-teal ring-4 ring-teal-100"></div>
-                        <div class="bg-white rounded-2xl p-6 md:p-7 shadow-sm border border-gray-200 hover:shadow-md transition-all">
-                            <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-2 mb-3">
-                                <div>
-                                    <h3 class="text-xl font-bold text-gray-900"
-                                        data-lang-zh="WITS Corp. 緯創軟體"
-                                        data-lang-en="WITS Corp.">
-                                        WITS Corp. 緯創軟體
-                                    </h3>
-                                    <p class="text-brand-teal font-medium mt-1"
-                                       data-lang-zh="軟體業"
-                                       data-lang-en="Software Industry">
-                                        軟體業
-                                    </p>
-                                </div>
-                                <span class="text-sm font-semibold text-gray-500 whitespace-nowrap">Dec 2007 – Sep 2008</span>
-                            </div>
-                            <p class="font-semibold text-gray-800">Engineer</p>
-                        </div>
-                    </div>
-
-                    <!-- Vibo -->
-                    <div class="relative pl-8 md:pl-10">
-                        <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-indigo-500 ring-4 ring-indigo-100"></div>
-                        <div class="bg-white rounded-2xl p-6 md:p-7 shadow-sm border border-gray-200 hover:shadow-md transition-all">
-                            <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-2 mb-3">
-                                <div>
-                                    <h3 class="text-xl font-bold text-gray-900"
-                                        data-lang-zh="Vibo Telecom Inc. 威寶電訊"
-                                        data-lang-en="Vibo Telecom Inc.">
-                                        Vibo Telecom Inc. 威寶電訊
-                                    </h3>
-                                    <p class="text-indigo-600 font-medium mt-1"
-                                       data-lang-zh="電信業"
-                                       data-lang-en="Telecommunications">
-                                        電信業
-                                    </p>
-                                </div>
-                                <span class="text-sm font-semibold text-gray-500 whitespace-nowrap">Jul 2007 – Dec 2007</span>
-                            </div>
-                            <p class="font-semibold text-gray-800">Engineer</p>
-                        </div>
-                    </div>
-
-                    <!-- Arima -->
-                    <div class="relative pl-8 md:pl-10">
-                        <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-slate-500 ring-4 ring-slate-100"></div>
-                        <div class="bg-white rounded-2xl p-6 md:p-7 shadow-sm border border-gray-200 hover:shadow-md transition-all">
-                            <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-2 mb-3">
-                                <div>
-                                    <h3 class="text-xl font-bold text-gray-900"
-                                        data-lang-zh="Arima Communications 華冠通訊"
-                                        data-lang-en="Arima Communications">
-                                        Arima Communications 華冠通訊
-                                    </h3>
-                                    <p class="text-slate-600 font-medium mt-1"
-                                       data-lang-zh="製造業 / 通訊業"
-                                       data-lang-en="Manufacturing / Communications">
-                                        製造業 / 通訊業
-                                    </p>
-                                </div>
-                                <span class="text-sm font-semibold text-gray-500 whitespace-nowrap">Mar 2003 – Jul 2007</span>
-                            </div>
-                            <p class="font-semibold text-gray-800">Senior Specialist</p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- Diodes Highlight Projects -->
-            <div class="text-center mb-12 fade-in-up">
-                <h3 class="text-2xl font-bold text-gray-900 mb-3"
-                    data-lang-zh="Diodes 全球 ERP 與流程改善代表專案"
-                    data-lang-en="Selected Global ERP & Process Improvement Projects at Diodes">
-                    Diodes 全球 ERP 與流程改善代表專案
-                </h3>
-                <p class="text-gray-600"
-                   data-lang-zh="以下聚焦最具代表性的企業系統建置、WMS 導入與跨國流程再造經驗。"
-                   data-lang-en="Selected examples highlighting enterprise system build-out, WMS implementation, and cross-border business process re-engineering.">
-                    以下聚焦最具代表性的企業系統建置、WMS 導入與跨國流程再造經驗。
-                </p>
-            </div>
-
-            <div class="space-y-8">
-                <!-- 專案 1 -->
-                <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden fade-in-up hover:shadow-md transition-all">
-                    <div class="md:flex">
-                        <div class="md:w-1/4 bg-brand-blue/5 p-6 flex flex-col justify-center items-center border-b md:border-b-0 md:border-r border-gray-100">
-                            <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center text-brand-blue shadow-sm mb-4 text-2xl">
-                                <i class="fas fa-ship"></i>
-                            </div>
-                            <h4 class="font-bold text-center text-gray-900"
-                                data-lang-zh="系統建置 0 到 1"
-                                data-lang-en="0-to-1 System Build">
-                                系統建置 0 到 1
-                            </h4>
-                        </div>
-                        <div class="md:w-3/4 p-6 lg:p-8">
-                            <h3 class="text-xl font-bold text-gray-900 mb-2"
-                                data-lang-zh="打造全球通用出貨與樣品系統"
-                                data-lang-en="Built Global Shipping & Sample Systems">
-                                打造全球通用出貨與樣品系統
-                            </h3>
-                            <p class="text-gray-600"
-                               data-lang-zh="從零開始打造全球通用的 <strong>Shipping Instruction System</strong> 與 <strong>Sample Request 系統</strong>。精準對接各國現場操作痛點，大幅提升全球出貨指示的準確度與樣品申請流程效率。"
-                               data-lang-en="Built global <strong>Shipping Instruction System</strong> and <strong>Sample Request System</strong> from scratch. Accurately matched operational pain points across countries, significantly enhancing global shipping accuracy and sample request efficiency.">
-                                從零開始打造全球通用的 <strong>Shipping Instruction System</strong> 與 <strong>Sample Request 系統</strong>。精準對接各國現場操作痛點，大幅提升全球出貨指示的準確度與樣品申請流程效率。
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 專案 2 -->
-                <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden fade-in-up hover:shadow-md transition-all">
-                    <div class="md:flex">
-                        <div class="md:w-1/4 bg-brand-teal/5 p-6 flex flex-col justify-center items-center border-b md:border-b-0 md:border-r border-gray-100">
-                            <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center text-brand-teal shadow-sm mb-4 text-2xl">
-                                <i class="fas fa-warehouse"></i>
-                            </div>
-                            <h4 class="font-bold text-center text-gray-900"
-                                data-lang-zh="大型系統導入"
-                                data-lang-en="Major System Rollout">
-                                大型系統導入
-                            </h4>
-                        </div>
-                        <div class="md:w-3/4 p-6 lg:p-8">
-                            <h3 class="text-xl font-bold text-gray-900 mb-2"
-                                data-lang-zh="主導 WMS 倉儲管理系統導入"
-                                data-lang-en="Led WMS Implementation">
-                                主導 WMS 倉儲管理系統導入
-                            </h3>
-                            <p class="text-gray-600"
-                               data-lang-zh="主導 <strong>WMS（倉儲管理系統）</strong>導入，並運用 <strong>Oracle WMS Cycle Count</strong> 功能，優化庫存盤點作業，提升營運效率與準確率。"
-                               data-lang-en="Spearheaded the deployment of <strong>WMS (Warehouse Management System)</strong> and optimized inventory cycle counting using <strong>Oracle WMS Cycle Count</strong> to elevate operational efficiency and accuracy.">
-                                主導 <strong>WMS（倉儲管理系統）</strong>導入，並運用 <strong>Oracle WMS Cycle Count</strong> 功能，優化庫存盤點作業，提升營運效率與準確率。
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 專案 3 -->
-                <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden fade-in-up hover:shadow-md transition-all">
-                    <div class="md:flex">
-                        <div class="md:w-1/4 bg-indigo-50 p-6 flex flex-col justify-center items-center border-b md:border-b-0 md:border-r border-gray-100">
-                            <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center text-indigo-600 shadow-sm mb-4 text-2xl">
-                                <i class="fas fa-sync-alt"></i>
-                            </div>
-                            <h4 class="font-bold text-center text-gray-900"
-                                data-lang-zh="跨國流程再造"
-                                data-lang-en="Cross-Border BPR">
-                                跨國流程再造
-                            </h4>
-                        </div>
-                        <div class="md:w-3/4 p-6 lg:p-8">
-                            <h3 class="text-xl font-bold text-gray-900 mb-2"
-                                data-lang-zh="推動跨國營運端到端的流程再造"
-                                data-lang-en="End-to-End Multinational BPR">
-                                推動跨國營運端到端的流程再造
-                            </h3>
-                            <p class="text-gray-600"
-                               data-lang-zh="深入各營運據點剖析痛點，推動跨國營運端到端（End-to-End）的流程再造（BPR），打造高效流暢的企業數位骨幹。"
-                               data-lang-en="Deep-dived into operational hubs to diagnose bottlenecks, driving end-to-end Business Process Re-engineering (BPR) across global operations to build a highly streamlined digital backbone.">
-                                深入各營運據點剖析痛點，推動跨國營運端到端（End-to-End）的流程再造（BPR），打造高效流暢的企業數位骨幹。
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <section id="experience" aria-labelledby="experience-title">
+ <div class="exp-container"><header class="exp-heading"><p class="exp-eyebrow">EXPERIENCE · 2003–2025</p><h2 id="experience-title" data-lang-zh="實戰經歷" data-lang-en="Professional Experience">實戰經歷</h2><p class="exp-intro" data-lang-zh="從企業系統實作、跨模組整合，到全球流程再造與團隊領導。將營運現場的問題，轉化為可落地的系統與流程。" data-lang-en="From enterprise system delivery and cross-module integration to global process transformation and team leadership. Turning operational challenges into practical systems and workflows.">從企業系統實作、跨模組整合，到全球流程再造與團隊領導。將營運現場的問題，轉化為可落地的系統與流程。</p></header>
+ <ol class="exp-timeline"><li class="exp-stop"><article class="exp-card" id="experience-diodes">
+ <header class="exp-card-head"><div><p class="exp-eyebrow" data-lang-zh="半導體" data-lang-en="Semiconductor">半導體</p><h3 data-lang-zh="Diodes Incorporated 美商達爾科技" data-lang-en="Diodes Incorporated">Diodes Incorporated 美商達爾科技</h3><p class="exp-role">Senior Application Manager &amp; Business Process Re-engineering Manager</p></div><p class="exp-date">2008 – 2025</p></header>
+ <p class="exp-focus" data-lang-zh="全球系統與流程再造" data-lang-en="Global systems &amp; process transformation">全球系統與流程再造</p>
+ <div class="exp-columns"><div><h4 class="exp-label" data-lang-zh="主要職責" data-lang-en="Responsibilities">主要職責</h4><p class="exp-copy" data-lang-zh="主導全球 ERP、企業系統整合與跨國流程改善，帶領約 12 人團隊，串連營運需求與系統落地。" data-lang-en="Led global ERP, enterprise system integration and cross-border process improvement, managing approximately 12 professionals to connect operational needs with system delivery.">主導全球 ERP、企業系統整合與跨國流程改善，帶領約 12 人團隊，串連營運需求與系統落地。</p></div><div><h4 class="exp-label" data-lang-zh="關鍵專案與職涯成長" data-lang-en="Key Projects / Career Growth">關鍵專案與職涯成長</h4><ul class="exp-list"><li data-lang-zh="系統建置：全球 Shipping Instruction 與 Sample Request 系統。" data-lang-en="System delivery: global Shipping Instruction and Sample Request systems.">系統建置：全球 Shipping Instruction 與 Sample Request 系統。</li>
+<li data-lang-zh="倉儲優化：WMS 導入與 Oracle WMS Cycle Count 盤點改善。" data-lang-en="Warehouse optimization: WMS implementation and Oracle WMS Cycle Count improvements.">倉儲優化：WMS 導入與 Oracle WMS Cycle Count 盤點改善。</li>
+<li data-lang-zh="流程再造：從各國營運痛點出發，推動端到端 BPR。" data-lang-en="Process transformation: end-to-end BPR informed by operational pain points across countries.">流程再造：從各國營運痛點出發，推動端到端 BPR。</li></ul><a class="exp-project-link" href="#enterprise-projects"><span data-lang-zh="查看代表專案 ↓" data-lang-en="Explore selected projects ↓">查看代表專案 ↓</span></a></div></div>
+</article></li>
+<li class="exp-stop"><article class="exp-card" id="experience-wits">
+ <header class="exp-card-head"><div><p class="exp-eyebrow" data-lang-zh="軟體" data-lang-en="Software">軟體</p><h3 data-lang-zh="WITS Corp. 緯創軟體" data-lang-en="WITS Corp.">WITS Corp. 緯創軟體</h3><p class="exp-role">Engineer</p></div><p class="exp-date">Dec 2007 – Sep 2008</p></header>
+ <p class="exp-focus" data-lang-zh="深化跨模組流程理解" data-lang-en="Deepening cross-module understanding">深化跨模組流程理解</p>
+ <div class="exp-columns"><div><h4 class="exp-label" data-lang-zh="主要職責" data-lang-en="Responsibilities">主要職責</h4><p class="exp-copy" data-lang-zh="維護 Oracle ERP Order Management（OM）、Accounts Receivable（AR）與 Ares HRMS，支援企業日常系統運作。" data-lang-en="Maintained Oracle ERP Order Management (OM), Accounts Receivable (AR) and Ares HRMS to support daily enterprise operations.">維護 Oracle ERP Order Management（OM）、Accounts Receivable（AR）與 Ares HRMS，支援企業日常系統運作。</p></div><div><h4 class="exp-label" data-lang-zh="關鍵專案與職涯成長" data-lang-en="Key Projects / Career Growth">關鍵專案與職涯成長</h4><ul class="exp-list"><li data-lang-zh="持續深化 Order-to-Cash / Order-to-Receivable 流程理解。" data-lang-en="Deepened understanding of Order-to-Cash / Order-to-Receivable processes.">持續深化 Order-to-Cash / Order-to-Receivable 流程理解。</li>
+<li data-lang-zh="連結訂單、出貨、開票與應收帳款的系統關係，累積跨模組問題分析能力。" data-lang-en="Developed cross-module problem analysis skills by understanding the system relationships between orders, shipping, invoicing and receivables.">連結訂單、出貨、開票與應收帳款的系統關係，累積跨模組問題分析能力。</li></ul></div></div>
+</article></li>
+<li class="exp-stop"><article class="exp-card" id="experience-vibo">
+ <header class="exp-card-head"><div><p class="exp-eyebrow" data-lang-zh="電信" data-lang-en="Telecommunications">電信</p><h3 data-lang-zh="Vibo Telecom Inc. 威寶電訊" data-lang-en="Vibo Telecom Inc.">Vibo Telecom Inc. 威寶電訊</h3><p class="exp-role">Engineer</p></div><p class="exp-date">Jul 2007 – Dec 2007</p></header>
+ <p class="exp-focus" data-lang-zh="建立 O2C 流程基礎" data-lang-en="Building an O2C foundation">建立 O2C 流程基礎</p>
+ <div class="exp-columns"><div><h4 class="exp-label" data-lang-zh="主要職責" data-lang-en="Responsibilities">主要職責</h4><p class="exp-copy" data-lang-zh="維護 Oracle ERP OM / AR 與 Ares HRMS，累積電信產業的企業系統支援經驗。" data-lang-en="Maintained Oracle ERP OM / AR and Ares HRMS, gaining enterprise system support experience in telecommunications.">維護 Oracle ERP OM / AR 與 Ares HRMS，累積電信產業的企業系統支援經驗。</p></div><div><h4 class="exp-label" data-lang-zh="關鍵專案與職涯成長" data-lang-en="Key Projects / Career Growth">關鍵專案與職涯成長</h4><ul class="exp-list"><li data-lang-zh="理解從訂單建立、出貨、開票到 AR 過帳的 Order-to-Receivable / Order-to-Cash 流程。" data-lang-en="Built understanding of Order-to-Receivable / Order-to-Cash, from order creation and shipment to invoicing and AR posting.">理解從訂單建立、出貨、開票到 AR 過帳的 Order-to-Receivable / Order-to-Cash 流程。</li>
+<li data-lang-zh="在系統維護工作中建立跨模組關聯與問題排查的基礎。" data-lang-en="Built a foundation in cross-module dependencies and troubleshooting through system maintenance.">在系統維護工作中建立跨模組關聯與問題排查的基礎。</li></ul></div></div>
+</article></li>
+<li class="exp-stop"><article class="exp-card" id="experience-arima">
+ <header class="exp-card-head"><div><p class="exp-eyebrow" data-lang-zh="製造／通訊" data-lang-en="Manufacturing / Communications">製造／通訊</p><h3 data-lang-zh="Arima Communications 華冠通訊" data-lang-en="Arima Communications">Arima Communications 華冠通訊</h3><p class="exp-role">Senior Specialist</p></div><p class="exp-date">Mar 2003 – Jul 2007</p></header>
+ <p class="exp-focus" data-lang-zh="從系統實作走向海外帶隊" data-lang-en="From systems delivery to overseas team leadership">從系統實作走向海外帶隊</p>
+ <div class="exp-columns"><div><h4 class="exp-label" data-lang-zh="主要職責" data-lang-en="Responsibilities">主要職責</h4><p class="exp-copy" data-lang-zh="企業系統導入與維護，涵蓋 HRMS、Oracle Fixed Assets（FA）、OM、AR 與 IBM QuickPlace。" data-lang-en="Enterprise system implementation and maintenance across HRMS, Oracle Fixed Assets (FA), OM, AR and IBM QuickPlace.">企業系統導入與維護，涵蓋 HRMS、Oracle Fixed Assets（FA）、OM、AR 與 IBM QuickPlace。</p></div><div><h4 class="exp-label" data-lang-zh="關鍵專案與職涯成長" data-lang-en="Key Projects / Career Growth">關鍵專案與職涯成長</h4><ul class="exp-list"><li data-lang-zh="HR 系統導入：台灣與吳江廠 HR System Implementation。" data-lang-en="HR system implementation: Taiwan and Wujiang plants.">HR 系統導入：台灣與吳江廠 HR System Implementation。</li>
+<li data-lang-zh="資源預約：IBM Notes Resource Reservation System。" data-lang-en="Resource reservation: IBM Notes Resource Reservation System.">資源預約：IBM Notes Resource Reservation System。</li>
+<li data-lang-zh="資產與庫存：Fixed Assets 管理與 BI 庫存分析。" data-lang-en="Assets and inventory: Fixed Assets management and BI inventory analysis.">資產與庫存：Fixed Assets 管理與 BI 庫存分析。</li>
+<li data-lang-zh="跨模組成長：由 HR 系統轉入 Oracle OM，拓展 ERP 流程視野。" data-lang-en="Cross-module growth: transitioned from HR systems to Oracle OM, broadening ERP process knowledge.">跨模組成長：由 HR 系統轉入 Oracle OM，拓展 ERP 流程視野。</li>
+<li data-lang-zh="海外帶隊：派駐中國一年，擔任 Team Lead。" data-lang-en="Overseas leadership: one-year assignment in China as Team Lead.">海外帶隊：派駐中國一年，擔任 Team Lead。</li></ul></div></div>
+</article></li></ol>
+ <section id="enterprise-projects" aria-labelledby="enterprise-projects-title"><header class="exp-heading exp-project-heading"><p class="exp-eyebrow" data-lang-zh="從職涯經驗，看見實際交付" data-lang-en="From experience to delivery">從職涯經驗，看見實際交付</p><h3 id="enterprise-projects-title" data-lang-zh="精選企業專案" data-lang-en="Selected Enterprise Projects">精選企業專案</h3><p class="exp-intro" data-lang-zh="聚焦 Diodes 的三組代表實績：系統建置、倉儲導入與跨國流程改善。" data-lang-en="Three selected areas of delivery at Diodes: system development, warehouse implementation and cross-border process improvement.">聚焦 Diodes 的三組代表實績：系統建置、倉儲導入與跨國流程改善。</p></header><div class="exp-project-grid"><article class="exp-project"><p class="exp-eyebrow">DIODES · 01</p><h4 data-lang-zh="全球出貨與樣品系統" data-lang-en="Global Shipping &amp; Sample Systems">全球出貨與樣品系統</h4><dl><dt data-lang-zh="業務需求" data-lang-en="Business Need">業務需求</dt><dd data-lang-zh="各國出貨指示與樣品申請的現場作業需求。" data-lang-en="Operational needs in shipping instructions and sample requests across countries.">各國出貨指示與樣品申請的現場作業需求。</dd><dt data-lang-zh="我的角色與做法" data-lang-en="My Role &amp; Approach">我的角色與做法</dt><dd data-lang-zh="從零建置 Shipping Instruction System 與 Sample Request System，對接全球使用情境。" data-lang-en="Built the Shipping Instruction System and Sample Request System from scratch for global use.">從零建置 Shipping Instruction System 與 Sample Request System，對接全球使用情境。</dd><dt data-lang-zh="營運價值" data-lang-en="Operational Value">營運價值</dt><dd data-lang-zh="支援出貨指示準確性與樣品申請流程效率。" data-lang-en="Supported shipping instruction accuracy and sample request efficiency.">支援出貨指示準確性與樣品申請流程效率。</dd></dl></article>
+<article class="exp-project"><p class="exp-eyebrow">DIODES · 02</p><h4 data-lang-zh="WMS 導入與庫存盤點優化" data-lang-en="WMS Implementation &amp; Cycle Counting">WMS 導入與庫存盤點優化</h4><dl><dt data-lang-zh="業務需求" data-lang-en="Business Need">業務需求</dt><dd data-lang-zh="倉儲作業與庫存盤點流程的改善需求。" data-lang-en="The need to improve warehouse operations and inventory counting.">倉儲作業與庫存盤點流程的改善需求。</dd><dt data-lang-zh="我的角色與做法" data-lang-en="My Role &amp; Approach">我的角色與做法</dt><dd data-lang-zh="主導 WMS 導入，運用 Oracle WMS Cycle Count 優化盤點作業。" data-lang-en="Led WMS implementation and optimized inventory counting with Oracle WMS Cycle Count.">主導 WMS 導入，運用 Oracle WMS Cycle Count 優化盤點作業。</dd><dt data-lang-zh="營運價值" data-lang-en="Operational Value">營運價值</dt><dd data-lang-zh="改善庫存作業效率與盤點準確性。" data-lang-en="Improved inventory operation efficiency and counting accuracy.">改善庫存作業效率與盤點準確性。</dd></dl></article>
+<article class="exp-project"><p class="exp-eyebrow">DIODES · 03</p><h4 data-lang-zh="跨國端到端流程再造" data-lang-en="Cross-Border End-to-End BPR">跨國端到端流程再造</h4><dl><dt data-lang-zh="業務需求" data-lang-en="Business Need">業務需求</dt><dd data-lang-zh="跨國營運據點的流程痛點與協作需求。" data-lang-en="Process pain points and coordination needs across international operations.">跨國營運據點的流程痛點與協作需求。</dd><dt data-lang-zh="我的角色與做法" data-lang-en="My Role &amp; Approach">我的角色與做法</dt><dd data-lang-zh="深入營運據點分析問題，推動端到端 Business Process Re-engineering。" data-lang-en="Analyzed issues at operational sites and drove end-to-end Business Process Re-engineering.">深入營運據點分析問題，推動端到端 Business Process Re-engineering。</dd><dt data-lang-zh="營運價值" data-lang-en="Operational Value">營運價值</dt><dd data-lang-zh="串連營運流程與企業系統，讓跨國作業更順暢。" data-lang-en="Connected operational processes with enterprise systems for smoother cross-border operations.">串連營運流程與企業系統，讓跨國作業更順暢。</dd></dl></article></div></section>
+ </div></section>
 
     <section id="skills" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -593,6 +435,7 @@
 
         function switchLanguage(lang) {
             currentLang = lang;
+            document.documentElement.lang = lang === 'en' ? 'en' : 'zh-TW';
             const elements = document.querySelectorAll('[data-lang-zh]');
             elements.forEach(el => {
                 if (lang === 'en') {

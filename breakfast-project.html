@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="zh-TW"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="早餐店解決方案（線上點餐系統／自動列印出餐紙）— HSIANG 李湘婷 產品與 UX/UI 案例研究。"><meta name="theme-color" content="#153f6b"><title>早餐店解決方案｜UX 案例拆解 · HSIANG</title><style>
+:root{--ink:#152e43;--muted:#536779;--teal:#087b76;--line:#dce5ea;--pale:#f3f7f9;--blue:#153f6b;--white:#fff;--amber:#b45309;--amber-bg:#fef3c7;--max:1160px;color-scheme:light}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:112px}body{margin:0;color:var(--ink);background:white;font:16px/1.8 -apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft JhengHei",sans-serif}a{color:inherit;text-decoration:none}button,input,textarea{font:inherit}button,a,summary{-webkit-tap-highlight-color:transparent}button,summary{cursor:pointer}a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--teal);outline-offset:5px}img{display:block;max-width:100%}h1,h2,h3,h4,p{margin:0}h1,h2,h3,h4{line-height:1.3}h1{font-size:clamp(32px,4.5vw,52px);letter-spacing:-.04em;font-weight:700}h2{font-size:clamp(24px,3vw,34px);letter-spacing:-.03em;font-weight:650}h3{font-size:20px;font-weight:650;letter-spacing:-.015em}h4{font-size:16px;font-weight:600}p{color:var(--muted)}p+p{margin-top:16px}.wrap{max-width:var(--max);width:calc(100% - 64px);margin:auto}.skip{position:fixed;top:-90px;left:20px;background:white;padding:12px;z-index:100}.skip:focus{top:10px}.site-header{position:sticky;top:0;z-index:50;background:#ffffffed;backdrop-filter:blur(15px);border-bottom:1px solid var(--line)}.header-row{height:82px;display:flex;align-items:center;gap:28px}.brand{font-size:25px;letter-spacing:.13em;font-weight:750;margin-right:auto;line-height:1.2}.brand small{display:block;font-size:10px;letter-spacing:.2em;color:var(--muted);font-weight:500;margin-top:6px}.nav{display:flex;align-items:center;gap:22px}.nav a{font-size:14px;padding:8px 0}.nav a:hover,.nav a[aria-current]{color:var(--teal)}.lang,.menu{border:1px solid var(--line);border-radius:6px;background:white;min-height:40px;padding:5px 12px;font-size:14px;color:var(--ink)}.menu{display:none}.subnav{border-bottom:1px solid var(--line);background:#f7fafb}.subnav .wrap{display:flex;gap:30px;flex-wrap:wrap;padding-top:12px;padding-bottom:12px}.subnav a{font-size:14px;padding:6px 0}.subnav a[aria-current]{color:var(--teal);font-weight:700}.page-hero{padding:54px 0 46px;background:#f3f8fa;border-bottom:1px solid var(--line)}.breadcrumb{font-size:13px;color:var(--muted);margin-bottom:24px}.breadcrumb a{color:var(--teal)}.eyebrow{font-size:12px;letter-spacing:.16em;color:var(--teal);font-weight:700;text-transform:uppercase;margin-bottom:16px}.page-hero .lede{font-size:18px;max-width:820px;margin-top:18px}.section{padding:72px 0}.tinted{background:var(--pale)}.section-head{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:36px}.text-link{color:var(--teal);font-size:14px;font-weight:650;display:inline-flex;align-items:center;gap:8px}.text-link:hover{text-decoration:underline;text-underline-offset:5px}.tag{display:inline-block;font-size:12px;padding:4px 10px;background:#eaf4f3;color:#176762;border-radius:4px;font-weight:500}.tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.button{display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:12px 24px;border-radius:6px;background:var(--blue);color:white;font-size:14px;font-weight:600;border:1px solid var(--blue);transition:background .15s}.button:hover{background:#205480}.button.secondary{background:white;color:var(--ink);border-color:#c9d6de}.button.secondary:hover{background:var(--pale)}
+
+/* Case Study specific components */
+.meta-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;padding:26px;background:white;border:1px solid var(--line);border-radius:10px;margin-top:36px}
+.meta-item strong{display:block;font-size:12px;color:var(--teal);letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px}
+.meta-item span{font-size:14px;color:var(--ink);font-weight:550}
+.banner-wrapper{margin:36px 0 0;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:white;box-shadow:0 8px 24px rgba(21,63,107,0.06)}
+.banner-wrapper img{width:100%;height:auto;display:block}
+
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.card{background:white;border:1px solid var(--line);border-radius:10px;padding:28px;display:flex;flex-direction:column;position:relative}
+.card.highlight{border-color:var(--teal);background:linear-gradient(180deg,#ffffff 0%,#f5faf9 100%)}
+.card-icon{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:8px;background:#eaf4f3;color:var(--teal);font-size:20px;margin-bottom:20px;font-weight:700}
+.card h3{margin-bottom:12px}
+.card p{font-size:15px;line-height:1.75}
+
+.rbac-comparison{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:28px}
+.rbac-col{background:white;border:1px solid var(--line);border-radius:10px;padding:30px}
+.rbac-col.staff{border-top:4px solid #b45309}
+.rbac-col.admin{border-top:4px solid var(--teal)}
+.rbac-badge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700;letter-spacing:.05em;margin-bottom:16px}
+.rbac-col.staff .rbac-badge{background:#fef3c7;color:#92400e}
+.rbac-col.admin .rbac-badge{background:#eaf4f3;color:#0f766e}
+.feature-list{list-style:none;margin:18px 0 0;padding:0}
+.feature-list li{position:relative;padding-left:24px;font-size:14px;color:var(--muted);margin-bottom:10px;line-height:1.6}
+.feature-list li::before{content:"✓";position:absolute;left:0;top:0;color:var(--teal);font-weight:bold}
+.feature-list li.warn::before{content:"!";color:#b45309;font-weight:bold}
+
+.flow-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:24px}
+.flow-step{background:white;border:1px solid var(--line);border-radius:8px;padding:20px;position:relative}
+.flow-step .num{font-size:12px;font-weight:700;color:var(--teal);letter-spacing:.1em;margin-bottom:8px}
+.flow-step h4{margin-bottom:8px;font-size:16px}
+.flow-step p{font-size:13px;line-height:1.6}
+
+.interactive-preview-card{background:white;border:1px solid var(--line);border-radius:12px;padding:24px;margin-top:36px;box-shadow:0 8px 24px rgba(21,63,107,0.06)}
+.preview-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:12px}
+.preview-iframe-wrapper{width:100%;height:680px;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#fafafa}
+.preview-iframe-wrapper iframe{width:100%;height:100%;border:0}
+
+.footer{padding:30px 0;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+.footer-row{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+
+@media(min-width:1001px){.nav{display:flex!important}}
+@media(max-width:1000px){.wrap{width:calc(100% - 40px)}.header-row{height:72px;gap:12px}.menu{display:block}.nav{display:none;position:absolute;top:72px;left:0;right:0;background:white;padding:18px 24px;border-bottom:1px solid var(--line);grid-template-columns:1fr 1fr;gap:8px 24px;box-shadow:0 12px 20px #18384a0d}.nav.open{display:grid}.meta-grid{grid-template-columns:1fr 1fr;gap:16px}.grid3,.grid2,.rbac-comparison,.flow-steps{grid-template-columns:1fr}}
+@media(max-width:700px){.page-hero{padding:36px 0}.section{padding:48px 0}.preview-iframe-wrapper{height:540px}}
+</style></head><body>
+<a class="skip" href="#main"><span data-lang-zh="跳至主要內容" data-lang-en="Skip to content">跳至主要內容</span></a>
+<header class="site-header"><div class="wrap header-row">
+<a class="brand" href="index.html">HSIANG<small>SOLUTION WORKS</small></a>
+<nav class="nav" id="main-navigation" aria-label="Main navigation">
+<a href="index.html">Home</a><a href="index.html#about">About</a><a href="index.html#experience">Experience</a><a href="projects.html" aria-current="page">Projects</a><a href="index.html#insights">Insights</a><a href="index.html#knowledge">Knowledge</a><a href="ai.html">AI</a><a href="index.html#contact">Contact</a>
+</nav>
+<button class="lang" type="button" aria-label="Switch to English">EN</button>
+<button class="menu" type="button" aria-controls="main-navigation" aria-expanded="false" aria-label="開啟或關閉導覽選單">☰</button>
+</div></header>
+
+<nav class="subnav" aria-label="AI pages"><div class="wrap">
+<a href="ai.html"><span data-lang-zh="AI 轉型" data-lang-en="AI Journey">AI 轉型</span></a>
+<a href="tools.html"><span data-lang-zh="AI 小工具" data-lang-en="AI Tools">AI 小工具</span></a>
+<a href="prompts.html"><span data-lang-zh="AI 指令" data-lang-en="AI Prompts">AI 指令</span></a>
+<a href="projects.html" aria-current="page"><span data-lang-zh="我的專案" data-lang-en="My Projects">我的專案</span></a>
+</div></nav>
+
+<main id="main">
+<!-- Page Hero -->
+<section class="page-hero"><div class="wrap">
+<div class="breadcrumb">
+<a href="index.html">Home</a> / <a href="projects.html"><span data-lang-zh="我的專案" data-lang-en="Projects">我的專案</span></a> / <span data-lang-zh="早餐店解決方案" data-lang-en="Breakfast Solution">早餐店解決方案</span>
+</div>
+<p class="eyebrow">CASE STUDY · BUSINESS APPLICATION</p>
+<h1 data-lang-zh="早餐店解決方案｜線上點餐與自動列印出餐紙" data-lang-en="Breakfast Ordering &amp; Thermal Printing Solution">早餐店解決方案｜線上點餐與自動列印出餐紙</h1>
+<p class="lede" data-lang-zh="為基隆在地傳統早餐店「美味香」量身打造。從深入真實小本營運場景出發，克服缺工與多工混亂，以零抽成、免裝大型 POS 的敏捷架構，實現 QR Code 掃碼、語音提醒與自動出單。" data-lang-en="Tailored for 'Mei Wei Xiang', a local diner in Keelung. Addressing real-world small business challenges of labor shortages and peak-hour chaos with a commission-free, lightweight architecture featuring QR ordering, sound alerts, and auto thermal ticket printing.">為基隆在地傳統早餐店「美味香」量身打造。從深入真實小本營運場景出發，克服缺工與多工混亂，以零抽成、免裝大型 POS 的敏捷架構，實現 QR Code 掃碼、語音提醒與自動出單。</p>
+
+<div class="meta-grid">
+<div class="meta-item">
+<strong data-lang-zh="角色職責" data-lang-en="My Role">角色職責</strong>
+<span data-lang-zh="UX/UI 設計 · 全端開發 · 流程再造" data-lang-en="UX/UI Design · Fullstack Dev · BPR">UX/UI 設計 · 全端開發 · 流程再造</span>
+</div>
+<div class="meta-item">
+<strong data-lang-zh="服務對象" data-lang-en="Client">服務對象</strong>
+<span data-lang-zh="基隆「美味香」早餐店" data-lang-en="Mei Wei Xiang Diner (Keelung)">基隆「美味香」早餐店</span>
+</div>
+<div class="meta-item">
+<strong data-lang-zh="核心技術" data-lang-en="Tech Stack">核心技術</strong>
+<span>Next.js 15 · Supabase · QZ Tray · NextAuth</span>
+</div>
+<div class="meta-item">
+<strong data-lang-zh="成果指標" data-lang-en="Impact">成果指標</strong>
+<span data-lang-zh="尖峰漏單率歸零 · 節省 80% 電話抄單時間" data-lang-en="Zero Missed Orders · 80% Phone Time Saved">尖峰漏單率歸零 · 節省 80% 電話抄單時間</span>
+</div>
+</div>
+
+<div class="banner-wrapper">
+<img src="pic/breakfast-thumbnail.png" alt="美味香早餐店點餐系統展示橫幅" width="1160" height="420" loading="eager">
+</div>
+</div></section>
+
+<!-- 情境、問題與痛點 -->
+<section class="section"><div class="wrap">
+<div class="section-head"><div>
+<p class="eyebrow" data-lang-zh="情境與痛點" data-lang-en="Context &amp; Challenges">情境與痛點</p>
+<h2 data-lang-zh="真實世界的微型餐飲困境" data-lang-en="The Reality of Micro-Restaurant Operations">真實世界的微型餐飲困境</h2>
+<p data-lang-zh="不是每家店都需要龐大的企業軟體，小本經營有其獨特的生存法則與硬性限制。" data-lang-en="Not every restaurant needs bloated enterprise software; small diners have distinct constraints and operational realities.">不是每家店都需要龐大的企業軟體，小本經營有其獨特的生存法則與硬性限制。</p>
+</div></div>
+
+<div class="grid3">
+<article class="card">
+<div class="card-icon">🏪</div>
+<h3 data-lang-zh="情境：小本經營與毛利限制" data-lang-en="Context: High Margin Sensitivity">情境：小本經營與毛利限制</h3>
+<p data-lang-zh="基隆在地傳統早餐店，主打銅板平價美食，毛利率低。市售主流外送或線上點餐平台每筆抽成高達 20%~35%，且伴隨昂貴的硬體月租與合約綁定，微型店家根本無法承受。" data-lang-en="A beloved neighborhood diner in Keelung with modest margins. Mainstream platforms charge 20%–35% commission plus hefty hardware lease fees, which completely erodes profitability for micro-businesses.">基隆在地傳統早餐店，主打銅板平價美食，毛利率低。市售主流外送或線上點餐平台每筆抽成高達 20%~35%，且伴隨昂貴的硬體月租與合約綁定，微型店家根本無法承受。</p>
+</article>
+
+<article class="card">
+<div class="card-icon">⚡</div>
+<h3 data-lang-zh="問題：缺工與尖峰多工混亂" data-lang-en="Problem: Severe Labor Shortage">問題：缺工與尖峰多工混亂</h3>
+<p data-lang-zh="餐飲基層員工極難招募。早晨尖峰 7:00～9:00 上班族湧現，現場人員只有兩三人，必須一邊煎台顧火、一邊招呼現場排隊、一邊接聽訂購電話，還要手寫算錢，極度容易漏單、做錯餐或手忙腳亂。" data-lang-en="Recruiting kitchen staff is increasingly difficult. During peak rush (7:00–9:00 AM), 2–3 workers must juggle frying griddles, greeting lines, taking telephone orders on paper, and calculating change simultaneously.">餐飲基層員工極難招募。早晨尖峰 7:00～9:00 上班族湧現，現場人員只有兩三人，必須一邊煎台顧火、一邊招呼現場排隊、一邊接聽訂購電話，還要手寫算錢，極度容易漏單、做錯餐或手忙腳亂。</p>
+</article>
+
+<article class="card highlight">
+<div class="card-icon">🎯</div>
+<h3 data-lang-zh="期待：輕量、自動化、零干擾" data-lang-en="Goals: Lightweight &amp; Automated">期待：輕量、自動化、零干擾</h3>
+<p data-lang-zh="導入桌邊掃碼與外帶線上預約；拒絕沉重昂貴的 POS 系統，改為純網頁輕量架構；整合熱感出單機直接列印出餐廚房單，並於新單送達時以語音蜂鳴通知現場，免去盯螢幕的負擔。" data-lang-en="Introduce dine-in table QR and takeout advance ordering. Avoid clunky POS machines, connect thermal printers for zero-click kitchen slips, and sound instant audio chimes so staff don't have to glue eyes to screens.">導入桌邊掃碼與外帶線上預約；拒絕沉重昂貴的 POS 系統，改為純網頁輕量架構；整合熱感出單機直接列印出餐廚房單，並於新單送達時以語音蜂鳴通知現場，免去盯螢幕的負擔。</p>
+</article>
+</div>
+</div></section>
+
+<!-- 角色與權限設計 (RBAC) -->
+<section class="section tinted"><div class="wrap">
+<div class="section-head"><div>
+<p class="eyebrow" data-lang-zh="架構與安全機制" data-lang-en="RBAC &amp; Constraints">架構與安全機制</p>
+<h2 data-lang-zh="雙軌權限與現場防呆架構" data-lang-en="Dual-Role RBAC &amp; Device Constraints">雙軌權限與現場防呆架構</h2>
+<p data-lang-zh="針對油煙廚房現場與店長管理維護，設計清晰分離的權限與操作模式。" data-lang-en="Distinctly separated roles and permissions tailored for greasy kitchen floors versus managerial administrative control.">針對油煙廚房現場與店長管理維護，設計清晰分離的權限與操作模式。</p>
+</div></div>
+
+<div class="rbac-comparison">
+<!-- 現場 Pad 端 -->
+<div class="rbac-col staff">
+<span class="rbac-badge" data-lang-zh="現場設備 · 員工端" data-lang-en="Floor Tablet · Staff Mode">現場設備 · 員工端</span>
+<h3 data-lang-zh="現場專用 Windows Pad" data-lang-en="Dedicated Kitchen Windows Pad">現場專用 Windows Pad</h3>
+<p data-lang-zh="店內煎台旁配備一台觸控 Pad，在充滿油煙與快節奏的環境下運作。以「極簡防呆、不犯錯」為 UX 第一準則：" data-lang-en="Placed beside the kitchen griddle. Engineered for fast-paced, greasy environments with fool-proof ergonomics:">店內煎台旁配備一台觸控 Pad，在充滿油煙與快節奏的環境下運作。以「極簡防呆、不犯錯」為 UX 第一準則：</p>
+<ul class="feature-list">
+<li data-lang-zh="<strong>專屬帳號密碼登入</strong>：免去個人綁定困擾，值班人員快速簽入。" data-lang-en="<strong>PIN / Password Login</strong>: Instant, hassle-free staff sign-in without personal account bindings."><strong>專屬帳號密碼登入</strong>：免去個人綁定困擾，值班人員快速簽入。</li>
+<li class="warn" data-lang-zh="<strong>資料嚴格限縮</strong>：僅開放查看「當日現有」與「明日預約」訂單，隱藏歷史財務與營業機密。" data-lang-en="<strong>Strict Scope Constraint</strong>: Only displays 'Today's' and 'Tomorrow's' orders to prevent distraction and safeguard financial records."><strong>資料嚴格限縮</strong>：僅開放查看「當日現有」與「明日預約」訂單，隱藏歷史財務與營業機密。</li>
+<li data-lang-zh="<strong>觸控特大操作鍵</strong>：接單、完成出餐一指搞定，適應指尖戴手套或沾附水分情境。" data-lang-en="<strong>Oversized Touch Targets</strong>: Confirm and complete orders with single taps, compatible with gloves."><strong>觸控特大操作鍵</strong>：接單、完成出餐一指搞定，適應指尖戴手套或沾附水分情境。</li>
+<li data-lang-zh="<strong>QZ Tray 靜默列印</strong>：本機橋接 Epson 熱感出單機，按下確認即刻出單切紙。" data-lang-en="<strong>QZ Tray Silent Printing</strong>: Direct ESC/POS printing to Epson thermal printer upon order receipt."><strong>QZ Tray 靜默列印</strong>：本機橋接 Epson 熱感出單機，按下確認即刻出單切紙。</li>
+<li data-lang-zh="<strong>Web Audio 即時聲效</strong>：新訂單推送即發出清脆提示音，不漏接任何外帶預約。" data-lang-en="<strong>Web Audio Chimes</strong>: Distinct acoustic notifications for incoming tickets without staring at the screen."><strong>Web Audio 即時聲效</strong>：新訂單推送即發出清脆提示音，不漏接任何外帶預約。</li>
+</ul>
+</div>
+
+<!-- 後台管理端 -->
+<div class="rbac-col admin">
+<span class="rbac-badge" data-lang-zh="管理者後台 · 店長專用" data-lang-en="Admin Portal · Store Owner">管理者後台 · 店長專用</span>
+<h3 data-lang-zh="雲端 Admin 營運後台" data-lang-en="Cloud Management Hub">雲端 Admin 營運後台</h3>
+<p data-lang-zh="店長可使用手機或筆電隨時登入，進行菜單定價、促銷與系統參數控管：" data-lang-en="Enables the owner to manage menu items, pricing, operating hours, and staff access from any mobile phone or browser:">店長可使用手機或筆電隨時登入，進行菜單定價、促銷與系統參數控管：</p>
+<ul class="feature-list">
+<li data-lang-zh="<strong>Google OAuth 企業級認證</strong>：透過 NextAuth 整合 Google 帳號授權，杜絕密碼外流。" data-lang-en="<strong>Google OAuth (NextAuth)</strong>: High-security authentication tied strictly to verified administrative emails."><strong>Google OAuth 企業級認證</strong>：透過 NextAuth 整合 Google 帳號授權，杜絕密碼外流。</li>
+<li data-lang-zh="<strong>彈性菜單與價格管理</strong>：支援分類、品項、加料價格即時修改，秒級同步前台。" data-lang-en="<strong>Dynamic Menu &amp; Pricing</strong>: Instant edits to categories, prices, and add-ons reflected immediately to clients."><strong>彈性菜單與價格管理</strong>：支援分類、品項、加料價格即時修改，秒級同步前台。</li>
+<li data-lang-zh="<strong>Vercel Blob 圖片管線</strong>：拍照直傳雲端儲存，提供一鍵清除錯圖與快取刷新。" data-lang-en="<strong>Vercel Blob Storage</strong>: Upload dish photos directly with automatic cache invalidation and cleanup."><strong>Vercel Blob 圖片管線</strong>：拍照直傳雲端儲存，提供一鍵清除錯圖與快取刷新。</li>
+<li data-lang-zh="<strong>Uber 式上架／先隱藏切換</strong>：當日某食材售罄（如蘿蔔糕），後台一鍵切換下架隱藏。" data-lang-en="<strong>Instant Delisting Toggle</strong>: Mark items as hidden when sold out (e.g., radish cake) to prevent customer disappointment."><strong>Uber 式上架／先隱藏切換</strong>：當日某食材售罄（如蘿蔔糕），後台一鍵切換下架隱藏。</li>
+<li data-lang-zh="<strong>出單小語與祝福詞設定</strong>：自訂熱感出餐紙底部的溫馨小語（如「祝您有美好的一天！」）。" data-lang-en="<strong>Kitchen Ticket Blessings</strong>: Customize personalized warm messages printed at the bottom of customer slips."><strong>出單小語與祝福詞設定</strong>：自訂熱感出餐紙底部的溫馨小語（如「祝您有美好的一天！」）。</li>
+<li data-lang-zh="<strong>行事曆與營業時間</strong>：整合政府行事曆，自訂國定假日、彈性補班與店休排程。" data-lang-en="<strong>Calendar &amp; Holiday Rules</strong>: Sync official government calendars for automatic holiday and day-off policies."><strong>行事曆與營業時間</strong>：整合政府行事曆，自訂國定假日、彈性補班與店休排程。</li>
+</ul>
+</div>
+</div>
+</div></section>
+
+<!-- UX 設計旅程 -->
+<section class="section"><div class="wrap">
+<div class="section-head"><div>
+<p class="eyebrow" data-lang-zh="用戶旅程設計" data-lang-en="User Journey">用戶旅程設計</p>
+<h2 data-lang-zh="零摩擦的端到端體驗" data-lang-en="Frictionless Customer &amp; Kitchen Flow">零摩擦的端到端體驗</h2>
+<p data-lang-zh="顧客只要 3 步即可完成點餐；現場人員無須分心抄寫，專注於出餐美味。" data-lang-en="Customers order in 3 simple steps without app downloads; kitchen staff focus on cooking instead of taking calls.">顧客只要 3 步即可完成點餐；現場人員無須分心抄寫，專注於出餐美味。</p>
+</div></div>
+
+<div class="flow-steps">
+<div class="flow-step">
+<div class="num">STEP 01</div>
+<h4 data-lang-zh="桌邊/外帶 掃碼即開" data-lang-en="Scan QR Code">桌邊/外帶 掃碼即開</h4>
+<p data-lang-zh="顧客用相機掃描桌上貼紙或外帶立牌，系統自動代入桌號（例 ?table=C3），免下載、免註冊直接瀏覽清晰菜單。" data-lang-en="Customer scans table QR sticker (?table=C3). Opens mobile browser instantly with zero registration or app download.">顧客用相機掃描桌上貼紙或外帶立牌，系統自動代入桌號（例 ?table=C3），免下載、免註冊直接瀏覽清晰菜單。</p>
+</div>
+
+<div class="flow-step">
+<div class="num">STEP 02</div>
+<h4 data-lang-zh="視覺化選餐與加料" data-lang-en="Visual Customization">視覺化選餐與加料</h4>
+<p data-lang-zh="熱門品項附高畫質照片，飲料甜度冰塊、蛋餅加起司／加辣直覺點選，購物車三欄對齊金額清楚明瞭。" data-lang-en="High-def photos for signature items, intuitive add-on selectors (spicy, extra cheese), clean 3-column cart review.">熱門品項附高畫質照片，飲料甜度冰塊、蛋餅加起司／加辣直覺點選，購物車三欄對齊金額清楚明瞭。</p>
+</div>
+
+<div class="flow-step">
+<div class="num">STEP 03</div>
+<h4 data-lang-zh="語音提醒＋自動出單" data-lang-en="Chime &amp; Auto-Print">語音提醒＋自動出單</h4>
+<p data-lang-zh="顧客送出訂單瞬間，店內 Windows Pad 響起提示聲；QZ Tray 自動驅動熱感印表機切出廚房聯與客聯。" data-lang-en="Order submit immediately triggers sound alert on kitchen Pad; QZ Tray drives thermal printer to cut the ticket.">顧客送出訂單瞬間，店內 Windows Pad 響起提示聲；QZ Tray 自動驅動熱感印表機切出廚房聯與客聯。</p>
+</div>
+
+<div class="flow-step">
+<div class="num">STEP 04</div>
+<h4 data-lang-zh="即時取餐進度" data-lang-en="Live Status Track">即時取餐進度</h4>
+<p data-lang-zh="顧客手機自動跳轉訂單狀態頁，清楚掌握「製作中」或「已完成取餐」，現場不再需要大聲呼喊客人桌號。" data-lang-en="Customer's screen shows real-time progress (Preparing / Ready for pickup), eliminating shouting across the counter.">顧客手機自動跳轉訂單狀態頁，清楚掌握「製作中」或「已完成取餐」，現場不再需要大聲呼喊客人桌號。</p>
+</div>
+</div>
+
+<!-- 即時互動展示區 -->
+<div class="interactive-preview-card">
+<div class="preview-header">
+<div>
+<h3 data-lang-zh="真實系統互動預覽" data-lang-en="Interactive Live System Preview">真實系統互動預覽</h3>
+<p data-lang-zh="目前正在線上運行的生產環境（顧客公開點餐視圖）：" data-lang-en="Currently live in production (Customer public ordering view):">目前正在線上運行的生產環境（顧客公開點餐視圖）：</p>
+</div>
+<div style="display:flex;gap:12px;align-items:center">
+<a class="button" href="https://breakfast-app-three.vercel.app/" target="_blank" rel="noopener noreferrer">
+<span data-lang-zh="另開獨立視窗體驗" data-lang-en="Open Live Site in New Tab">另開獨立視窗體驗</span> ↗
+</a>
+</div>
+</div>
+<div class="preview-iframe-wrapper">
+<iframe src="https://breakfast-app-three.vercel.app/" title="美味香早餐點餐系統生產環境預覽" loading="lazy"></iframe>
+</div>
+</div>
+
+<div style="text-align:center;margin-top:48px">
+<a class="button secondary" href="projects.html">
+← <span data-lang-zh="返回我的專案列表" data-lang-en="Back to Projects">返回我的專案列表</span>
+</a>
+</div>
+</div></section>
+</main>
+
+<footer class="footer"><div class="wrap footer-row">
+<span>© 2026 Hsiang Ting Lee · 李湘婷</span>
+<span>Business Process × Enterprise Systems × AI</span>
+<a href="#main"><span data-lang-zh="回到頁首 ↑" data-lang-en="Back to top ↑">回到頁首 ↑</span></a>
+</div></footer>
+
+<script>
+const nav=document.querySelector('.nav'), menu=document.querySelector('.menu'), langButton=document.querySelector('.lang');
+let language='zh';
+function closeMenu(){nav.classList.remove('open');menu.setAttribute('aria-expanded','false');}
+menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));});
+nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeMenu();if(document.activeElement.closest('.nav'))menu.focus();}});
+function setLanguage(lang){
+  language=lang;
+  document.documentElement.lang=lang==='en'?'en':'zh-TW';
+  document.querySelectorAll('[data-lang-zh]').forEach(el=>{
+    el.innerHTML=el.getAttribute('data-lang-'+lang);
+  });
+  langButton.textContent=lang==='en'?'繁中':'EN';
+  langButton.setAttribute('aria-label',lang==='en'?'切換為繁體中文':'Switch to English');
+  menu.setAttribute('aria-label',lang==='en'?'Toggle navigation':'開啟或關閉導覽選單');
+  try{localStorage.setItem('hsiang-language',lang)}catch{}
+}
+langButton.addEventListener('click',()=>setLanguage(language==='zh'?'en':'zh'));
+try{if(localStorage.getItem('hsiang-language')==='en')setLanguage('en')}catch{}
+</script>
+</body></html>

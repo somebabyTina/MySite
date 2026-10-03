@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vocus 文章縮圖生成器 - LucidSource</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Noto+Serif+TC:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: #F6F3EE;
+    }
+    .font-cormorant {
+      font-family: 'Cormorant Garamond', 'Noto Serif TC', serif;
+    }
+  </style>
+</head>
+<body class="min-h-screen text-[#2C3E50] p-6 md:p-10 flex flex-col items-center justify-center">
+
+  <div class="max-w-4xl w-full">
+    <!-- Header -->
+    <header class="mb-6 flex flex-col md:flex-row md:items-end justify-between border-b border-[#E3DDD4] pb-4">
+      <div>
+        <span class="text-xs uppercase tracking-[0.25em] text-[#C08A58] font-semibold">LucidSource // Mindful Thread</span>
+        <h1 class="text-2xl font-bold text-[#1E2B37] mt-1">方格子 Vocus 文章縮圖預覽與下載</h1>
+      </div>
+      <p class="text-xs text-[#7A6F68] mt-2 md:mt-0">規格：1,200 × 675 px (16:9 標準比例)</p>
+    </header>
+
+    <!-- Canvas Preview Card -->
+    <div class="bg-white p-3 rounded-2xl shadow-sm border border-[#E8E2D9] mb-6">
+      <div class="relative w-full aspect-[16/9] rounded-xl overflow-hidden shadow-inner bg-[#FDFBF7]">
+        <canvas id="thumbnailCanvas" width="1200" height="675" class="w-full h-full object-contain block"></canvas>
+      </div>
+    </div>
+
+    <!-- Controls & Actions -->
+    <div class="bg-white p-6 rounded-2xl border border-[#E8E2D9] shadow-sm space-y-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wider text-[#7A6F68] mb-1">主標題 (Main Title)</label>
+          <input type="text" id="inputTitle" value="R12 AP：Payment Register" 
+                 class="w-full px-3.5 py-2.5 rounded-lg border border-[#DDD5C9] focus:outline-none focus:ring-2 focus:ring-[#C08A58] text-[#1E2B37] font-medium bg-[#FAFAF7]">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wider text-[#7A6F68] mb-1">分類標籤 (Category Badge)</label>
+          <input type="text" id="inputCategory" value="ORACLE EBS R12 • AP 模組實戰筆記" 
+                 class="w-full px-3.5 py-2.5 rounded-lg border border-[#DDD5C9] focus:outline-none focus:ring-2 focus:ring-[#C08A58] text-[#1E2B37] font-medium bg-[#FAFAF7]">
+        </div>
+        <div class="md:col-span-2">
+          <label class="block text-xs font-semibold uppercase tracking-wider text-[#7A6F68] mb-1">副標題 / 摘要 (Subtitle / Core Insight)</label>
+          <input type="text" id="inputSubtitle" value="觀其象尋其源：付款登記簿報表底層邏輯、狀態稽核與對帳要點" 
+                 class="w-full px-3.5 py-2.5 rounded-lg border border-[#DDD5C9] focus:outline-none focus:ring-2 focus:ring-[#C08A58] text-[#1E2B37] font-medium bg-[#FAFAF7]">
+        </div>
+      </div>
+
+      <div class="flex flex-wrap items-center justify-between pt-4 border-t border-[#F0EBE3] gap-3">
+        <div class="text-xs text-[#8C827A] flex items-center gap-2">
+          <span class="inline-block w-2.5 h-2.5 rounded-full bg-[#E0A96D]"></span>
+          <span>知性暖調極簡風 (Warm Editorial Minimalism)</span>
+        </div>
+        <button id="btnDownload" 
+                class="px-6 py-2.5 rounded-xl bg-[#1E2B37] hover:bg-[#151F28] text-white font-medium text-sm transition-all shadow-sm hover:shadow flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+          </svg>
+          一鍵下載高解析度縮圖 (1200×675 PNG)
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const canvas = document.getElementById('thumbnailCanvas');
+    const ctx = canvas.getContext('2d');
+
+    const inputTitle = document.getElementById('inputTitle');
+    const inputCategory = document.getElementById('inputCategory');
+    const inputSubtitle = document.getElementById('inputSubtitle');
+    const btnDownload = document.getElementById('btnDownload');
+
+    function draw() {
+      const W = 1200;
+      const H = 675;
+
+      // 1. 背景底色：溫潤米白微漸層
+      const bgGrad = ctx.createLinearGradient(0, 0, W, H);
+      bgGrad.addColorStop(0, '#FAF7F2');
+      bgGrad.addColorStop(0.5, '#FDFCFA');
+      bgGrad.addColorStop(1, '#F5EFE6');
+      ctx.fillStyle = bgGrad;
+      ctx.fillRect(0, 0, W, H);
+
+      // 2. 幾何理序背景線（象徵 Oracle AP 對帳與報表架構的「理其序」）
+      ctx.save();
+      ctx.strokeStyle = 'rgba(215, 203, 189, 0.4)';
+      ctx.lineWidth = 1;
+      
+      // 輕量微型網格
+      for (let x = 80; x < W; x += 120) {
+        ctx.beginPath();
+        ctx.moveTo(x, 40);
+        ctx.lineTo(x, H - 40);
+        ctx.stroke();
+      }
+      for (let y = 60; y < H; y += 100) {
+        ctx.beginPath();
+        ctx.moveTo(40, y);
+        ctx.lineTo(W - 40, y);
+        ctx.stroke();
+      }
+      ctx.restore();
+
+      // 3. 貫穿全景的琥珀金流動絲線 (Mindful Thread)
+      ctx.save();
+      ctx.beginPath();
+      ctx.moveTo(60, 520);
+      ctx.bezierCurveTo(280, 480, 360, 360, 560, 420);
+      ctx.bezierCurveTo(740, 480, 880, 310, 1100, 220);
+      ctx.strokeStyle = '#DDA368';
+      ctx.lineWidth = 2.5;
+      ctx.stroke();
+
+      // 絲線節點（象徵數據流向與日出光芒）
+      const nodes = [
+        { x: 300, y: 440, r: 4.5, c: '#C4915C' },
+        { x: 560, y: 420, r: 5.5, c: '#E0A96D' },
+        { x: 740, y: 445, r: 5, c: '#C4915C' },
+        { x: 880, y: 350, r: 6, c: '#E0A96D' },
+      ];
+      nodes.forEach(n => {
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+        ctx.fillStyle = n.c;
+        ctx.fill();
+        ctx.strokeStyle = '#FAF7F2';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+      });
+
+      // 右上方金色靈光微暈 (Aura Sun)
+      const sunGrad = ctx.createRadialGradient(1100, 220, 4, 1100, 220, 70);
+      sunGrad.addColorStop(0, 'rgba(235, 168, 92, 0.9)');
+      sunGrad.addColorStop(0.35, 'rgba(235, 168, 92, 0.35)');
+      sunGrad.addColorStop(1, 'rgba(235, 168, 92, 0)');
+      ctx.fillStyle = sunGrad;
+      ctx.beginPath();
+      ctx.arc(1100, 220, 70, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.arc(1100, 220, 13, 0, Math.PI * 2);
+      ctx.fillStyle = '#E89D4F';
+      ctx.fill();
+      ctx.restore();
+
+      // 4. 左下角手繪感幾何書頁與報表意象
+      ctx.save();
+      ctx.fillStyle = 'rgba(224, 213, 198, 0.45)';
+      ctx.fillRect(80, 460, 160, 110);
+      ctx.strokeStyle = 'rgba(196, 178, 158, 0.6)';
+      ctx.lineWidth = 1.5;
+      ctx.strokeRect(80, 460, 160, 110);
+
+      // 書頁內仿報表微縮線條
+      ctx.strokeStyle = 'rgba(150, 135, 120, 0.4)';
+      ctx.lineWidth = 1.2;
+      for (let ly = 485; ly <= 550; ly += 14) {
+        ctx.beginPath();
+        ctx.moveTo(96, ly);
+        ctx.lineTo(224, ly);
+        ctx.stroke();
+      }
+      ctx.restore();
+
+      // 5. 頂部品牌標記 (LucidSource Branding)
+      ctx.save();
+      ctx.fillStyle = '#8E8276';
+      ctx.font = '600 13px "Plus Jakarta Sans", sans-serif';
+      ctx.letterSpacing = '0.28em';
+      ctx.fillText('LUCIDSOURCE  //  MINDFUL THREAD', 90, 110);
+
+      // 右上角意象標語
+      ctx.textAlign = 'right';
+      ctx.letterSpacing = '0.22em';
+      ctx.fillStyle = '#B0A294';
+      ctx.font = '500 12px "Plus Jakarta Sans", sans-serif';
+      ctx.fillText('TRACING THE SOURCE • SHAPING ORDER', 1110, 110);
+      ctx.restore();
+
+      // 6. 模組分類標籤膠囊 (Pill Badge)
+      const catText = inputCategory.value.trim().toUpperCase();
+      ctx.save();
+      ctx.font = '600 14px "Plus Jakarta Sans", sans-serif';
+      const catWidth = ctx.measureText(catText).width;
+      const pillX = 90;
+      const pillY = 175;
+      const pillH = 34;
+      const pillW = catWidth + 36;
+
+      ctx.fillStyle = 'rgba(224, 169, 109, 0.15)';
+      ctx.strokeStyle = '#D79F63';
+      ctx.lineWidth = 1.2;
+      ctx.beginPath();
+      ctx.roundRect(pillX, pillY, pillW, pillH, 17);
+      ctx.fill();
+      ctx.stroke();
+
+      ctx.fillStyle = '#A06328';
+      ctx.fillText(catText, pillX + 18, pillY + 22);
+      ctx.restore();
+
+      // 7. 主標題 (Main Title: R12 AP：Payment Register)
+      ctx.save();
+      ctx.fillStyle = '#1A2938';
+      ctx.font = '700 62px "Cormorant Garamond", "Noto Serif TC", serif';
+      ctx.textBaseline = 'top';
+      ctx.fillText(inputTitle.value.trim(), 90, 240);
+      ctx.restore();
+
+      // 8. 標題下方輔助裝飾線
+      ctx.save();
+      ctx.strokeStyle = '#E0A96D';
+      ctx.lineWidth = 3;
+      ctx.beginPath();
+      ctx.moveTo(90, 332);
+      ctx.lineTo(240, 332);
+      ctx.stroke();
+      ctx.restore();
+
+      // 9. 副標題 / 核心見解 (Subtitle)
+      ctx.save();
+      ctx.fillStyle = '#4B5866';
+      ctx.font = '500 24px "Noto Serif TC", serif';
+      ctx.textBaseline = 'top';
+      ctx.fillText(inputSubtitle.value.trim(), 90, 360);
+      ctx.restore();
+
+      // 10. 底部對帳標記 (Footer Meta)
+      ctx.save();
+      ctx.fillStyle = '#82786F';
+      ctx.font = '500 14px "Plus Jakarta Sans", sans-serif';
+      ctx.fillText('FINANCIAL SYSTEMS & AUDIT TRAIL', 90, 595);
+
+      ctx.textAlign = 'right';
+      ctx.fillStyle = '#9C8F84';
+      ctx.fillText('OBSERVE • TRACE • ORDER • CREATE', 1110, 595);
+      ctx.restore();
+    }
+
+    // 當字型載入完成後繪製
+    document.fonts.ready.then(draw);
+
+    // 即時重繪事件監聽
+    inputTitle.addEventListener('input', draw);
+    inputCategory.addEventListener('input', draw);
+    inputSubtitle.addEventListener('input', draw);
+
+    // 下載 PNG 功能
+    btnDownload.addEventListener('click', () => {
+      const link = document.createElement('a');
+      link.download = 'Vocus_Cover_R12_AP_Payment_Register.png';
+      link.href = canvas.toDataURL('image/png', 1.0);
+      link.click();
+    });
+  </script>
+</body>
+</html>

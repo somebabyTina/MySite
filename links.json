@@ -14,5 +14,21 @@
     "url": "https://ai365.fans/gae265-0904",
     "desc_zh": "GAE265 AI 課程相關頁面。",
     "desc_en": "GAE265 AI course page."
+  },
+  {
+    "category_zh": "AI 開發平台",
+    "category_en": "AI Platforms",
+    "name": "Google AI Studio",
+    "url": "https://aistudio.google.com/",
+    "desc_zh": "測試 Gemini 模型與提示，並取得 API 金鑰。",
+    "desc_en": "Try Gemini models and prompts, and get an API key."
+  },
+  {
+    "category_zh": "AI 開發平台",
+    "category_en": "AI Platforms",
+    "name": "Azure Portal",
+    "url": "https://portal.azure.com/",
+    "desc_zh": "管理 Azure 雲端資源，例如 Azure OpenAI 與部署服務。",
+    "desc_en": "Manage Azure cloud resources such as Azure OpenAI and deployments."
   }
 ]

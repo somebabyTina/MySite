@@ -1,0 +1,18 @@
+[
+  {
+    "category_zh": "AI 模型評比",
+    "category_en": "Model Comparison",
+    "name": "Arena",
+    "url": "https://arena.ai/",
+    "desc_zh": "匿名並排比較 AI 模型回答，並依投票產生排行榜。",
+    "desc_en": "Compare AI model answers side by side anonymously; votes form a public leaderboard."
+  },
+  {
+    "category_zh": "學習資源",
+    "category_en": "Learning",
+    "name": "GAE265 課程頁",
+    "url": "https://ai365.fans/gae265-0904",
+    "desc_zh": "GAE265 AI 課程相關頁面。",
+    "desc_en": "GAE265 AI course page."
+  }
+]
